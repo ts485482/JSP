@@ -22,8 +22,10 @@
     <div class="row align-items-md-stretch text-center">
         <div class="col-md-12">
             <div class="h-100 p-5">
-                <h3><%=tagline %></h3>
+                <p> <a href="books.jsp"
+                class="btn btn-secondary" role="button">도서목록 보러가기&raquo;<br></a>
                 <%
+                    response.setIntHeader("Refresh", 5);
                     Date day=new java.util.Date();
                     String am_pm;
                     int hour=day.getHours();
@@ -36,7 +38,7 @@
                         hour=hour-12;
                     }
                     String CT = hour + ":" + minute + ":" + second + " " + am_pm;
-                    out println("현재 접속 시각 : " + CT + "\n");
+                    out.println("현재 접속 시각 : " + CT + "\n");
                 %>
             </div>
         </div>
