@@ -18,7 +18,7 @@
     </div>
 
     <div class="row align-items-md-stretch">
-        <form name="newBook" action="processAddBook.jsp" method="post">
+        <form name="newBook" enctype="multipart/form-data" action="processAddBook.jsp" method="post">
             <div class="mb-3 row">
                 <label class="col-sm-2">도서코드</label>
                 <div class="col-sm-3">
@@ -77,14 +77,20 @@
             <div class="mb-3 row">
                 <label class="col-sm-2">상태</label>
                 <div class="col-sm-3">
-                    <input type="radio" name="condition" class="form-control"> 신규 도서
-                    <input type="radio" name="condition" class="form-control"> 중고 도서
-                    <input type="radio" name="condition" class="form-control"> E-Book
+                    <input type="radio" name="condition" value="New" checked> 신규 도서
+                    <input type="radio" name="condition" value="Old"> 중고 도서
+                    <input type="radio" name="condition" value="EBook"> E-Book
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2">이미지</label>
+                <div class="col-sm-5">
+                    <input type="file" name="BookImage" class="form-control">
                 </div>
             </div>
             <div class="mb-3 row">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <input type="submit" href="addBook.jsp" class="btn btn-primary" value="등록">
+                    <input type="submit" class="btn btn-primary" value="등록">
                 </div>
             </div>
         </form>

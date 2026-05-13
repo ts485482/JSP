@@ -2,6 +2,7 @@ package ado;
 
 import java.io.Serializable;
 
+
 public class Book implements Serializable {
     
     private String bookId;          //도서 ID
@@ -14,6 +15,7 @@ public class Book implements Serializable {
     private long unitsInStock;      //재고개수
     private String releaseDate;     //출판일
     private String condition;       //신제품 or 구제품 or 리퍼브제품
+    private String filename;        //사진 파일명
 
     public Book(){
         super();
@@ -64,7 +66,15 @@ public class Book implements Serializable {
     public String getCondition() {
         return condition;
     }
+    
+    public String getFilename() {
+        return filename;
+    }
 
+    public void setBookId(String bookId) {
+        this.bookId = bookId;
+    }
+    
     public void setName(String name) {
         this.name = name;
     }
@@ -99,5 +109,9 @@ public class Book implements Serializable {
 
     public void setCondition(String condition) {
         this.condition = condition;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 }

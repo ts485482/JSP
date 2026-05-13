@@ -1,10 +1,19 @@
-<header class="pb-3 mb-4 border-bottom">
-<span>
-    <a href="welcome.jsp" class="d-flex align-items-center text-dark text-decoration-none">
-        <img src="img/house.png" alt="main">
-    </a>
-    <a href="books.jsp" class="d-flex align-items-center text-dark text-decoration-none">
-        <img src="img/info.png" alt="books">
-    </a>
-</span>
+<header class="pb-3 mb-4 border-bottom" style="height:10%;">
+    <nav style="float: left;
+    width:100%;
+    padding: 0;
+    vertical-align: middle;">
+        <ul style="list-style-type:none;">
+            <li style="float:left;">
+                <a href="welcome.jsp">
+                    <img src="img/house.png">
+                </a>
+            </li>
+            <li style="float:left;">
+                <a href="books.jsp">
+                    <img src="img/info.png">
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>

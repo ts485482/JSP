@@ -23,7 +23,8 @@
         <div class="col-md-12">
             <div class="h-100 p-5">
                 <p> <a href="books.jsp"
-                class="btn btn-secondary" role="button">도서목록 보러가기&raquo;<br></a>
+                class="btn btn-secondary" role="button">도서목록 보러가기&raquo;</a>
+                <br>
                 <%
                     response.setIntHeader("Refresh", 5);
                     Date day=new java.util.Date();
