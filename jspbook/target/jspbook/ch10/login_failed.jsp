@@ -3,9 +3,9 @@
 
 <html>
 <head>
-<title></title>
+<title>Security</title>
 </head>
 <body>
-<h2>Hello World!</h2>
+    <p> 인증 실패했습니다.
 </body>
 </html>
