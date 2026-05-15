@@ -2,6 +2,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="ado.Book" %>
 <%@ page import="dao.BookRepository" %>
+<%@ page errorPage="exceptionNoBookId.jsp" %>
 
 <jsp:useBean id="bookDAO" class="dao.BookRepository" scope="session" />
 <html>
