@@ -1,2 +1,4 @@
 ado\Book.class
 dao\BookRepository.class
+filter\LogFileFilter.class
+filter\LogFilter.class
