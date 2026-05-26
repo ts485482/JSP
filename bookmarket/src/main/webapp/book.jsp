@@ -32,27 +32,29 @@
     </div>
 
     <% 
-        String id=request.getParameter("id");
-        BookRepository dao=BookRepository.getInstance();
-        Book book=dao.getBookById(id);
+        PreparedStatement pstmt=null;
+        ResultSet rs=null;
+        String sql="SELECT * FROM book";
+        pstmt=conn.prepareStatement(sql);
+        rs=pstmt.executeQuery();
     %>
     <div class="row align-items-md-stretch">
         <div class="col-md-5">
-            <img src="resources/images/<%=book.getFilename() %>" style=
+            <img src="resources/images/<%=rs.getString("b_filename") %>" style=
             "width : 70%;">
         </div>
         <div class="col-md-6">
-            <h3><b><%=book.getName() %></b></h3>
-            <p> <%=book.getDescription() %>
+            <h3><b><%=rs.getString("b_name") %></b></h3>
+            <p> <%=rs.getString("b_description") %>
             <p> <b>도서코드 : </b><span class="badge text-bg-danger">
-            <%=book.getBookId() %></span>
-            <p> <b>저자</b> : <%=book.getAuthor() %>
-            <p> <b>출판사</b> : <%=book.getPublisher() %>
-            <p> <b>출판일</b> : <%=book.getReleaseDate() %>
-            <p> <b>분류</b> : <%=book.getCategory() %>
-            <p> <b>재고수</b> : <%=book.getUnitsInStock() %>
-            <h4><%=book.getUnitPrice() %>원</h4>
-            <p> <form name="addForm" action="./addCart.jsp?id=<%=book.getBookId() %>" method = "post">
+            <%=rs.getString("b_id") %></span>
+            <p> <b>저자</b> : <%=rs.getString("b_author") %>
+            <p> <b>출판사</b> : <%=rs.getString("b_publisher") %>
+            <p> <b>출판일</b> : <%=rs.getString("b_releaseDate") %>
+            <p> <b>분류</b> : <%=rs.getString("b_category") %>
+            <p> <b>재고수</b> : <%=rs.getString("b_unitsInStock") %>
+            <h4><%=rs.getString("b_unitPrice") %>원</h4>
+            <p> <form name="addForm" action="./addCart.jsp?id=<%=rs.getString("b_id") %>" method = "post">
                     <a href="#" class="btn btn-info" onclick="addToCart()">도서 주문&raquo;</a>
                     <a href="./cart.jsp" class="btn btn-warning">장바구니 &raquo;</a>
                     <a href="./books.jsp" class="btn btn-secondary">도서 목록 &raquo;</a>

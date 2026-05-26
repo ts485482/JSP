@@ -1,15 +1,15 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<%@ page import="ado.Book"%>
-<%@ page import="dao.BookRepository"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.io.*"%>
 <%@ page import="jakarta.servlet.http.*"%>
+<%@ page import="java.sql.*" %>
+<%@ include file="dbconn.jsp" %>
 <%
     // 1. 인코딩 설정
     request.setCharacterEncoding("UTF-8");
 
     // 2. 파일 저장 경로 설정 (프로젝트 내 resources/images 폴더)
-    String realFolder = request.getServletContext().getRealPath("/resources/images");
+    String realFolder = request.getServletContext().getRealPath("./resources/images");
     
     // 폴더가 없으면 생성
     File dir = new File(realFolder);
@@ -45,23 +45,29 @@
     }
     
     // 6. 데이터베이스(Repository) 저장
-    BookRepository dao = BookRepository.getInstance();
-    
-    Book newBook = new Book();
-    newBook.setBookId(bookId);
-    newBook.setName(name);
-    newBook.setUnitPrice(price);
-    newBook.setAuthor(author);
-    newBook.setPublisher(publisher);
-    newBook.setReleaseDate(releaseDate);
-    newBook.setDescription(description);
-    newBook.setCategory(category);
-    newBook.setUnitsInStock(stock);
-    newBook.setCondition(condition);
-    newBook.setFilename(fileName); // 파일명 저장
+    PreparedStatement pstmt=null;
 
-    dao.addBook(newBook);
+    String sql = "INSERT INTO book VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+
+    pstmt=conn.prepareStatement(sql);
+    pstmt.setString(1, bookId);
+    pstmt.setString(2, name);
+    pstmt.setInt(3, price);
+    pstmt.setString(4, author);
+    pstmt.setString(5, description);
+    pstmt.setString(6, publisher);
+    pstmt.setString(7, category);
+    pstmt.setLong(8, stock);
+    pstmt.setString(9, releaseDate);
+    pstmt.setString(10, condition);
+    pstmt.setString(11, fileName);
+    pstmt.executeUpdate();
+
+    if(pstmt != null)
+        pstmt.close();
+    if(conn!=null)
+        conn.close();
+
     // 7. 성공 후 리다이렉트
     response.sendRedirect("books.jsp");
-    
 %>

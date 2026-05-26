@@ -12,10 +12,10 @@
 
     String shipping_cartId="";
     String shipping_name="";
-    String Shipping_shippingDate="";
-    String Shipping_country="";
-    String Shipping_zipCode="";
-    String Shipping_addressName="";
+    String shipping_shippingDate="";
+    String shipping_country="";
+    String shipping_zipCode="";
+    String shipping_addressName="";
 
     Cookie[] cookies=request.getCookies();
 
@@ -106,7 +106,7 @@
                 <td class="text-center text-danger"><strong><%=sum%></strong></td>
             </tr>
             </table>
-            <a href="./ShippingInfo.jsp?cartId=<%shipping_cartId%>" class="btn btn-secondary" role="button">이전</a>
+            <a href="./shippingInfo.jsp?cartId=<%=shipping_cartId %>" class="btn btn-secondary" role="button">이전</a>
             <a href="./thankCustomer.jsp" class="btn btn-success" role="button">주문 완료</a>
             <a href="./checkOutCancelled.jsp" class="btn btn-secondary" role="button">취소</a>
         </div>

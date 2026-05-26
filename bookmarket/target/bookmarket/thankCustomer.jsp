@@ -9,7 +9,7 @@
 <body>
 <%
     String shipping_cartId="";
-    String shipping_name=""
+    String shipping_name="";
     String shipping_shippingDate="";
     String shipping_country="";
     String shipping_zipCode="";
@@ -40,7 +40,7 @@
 
     <div class="row align-items-md-stretch">
         <h2 class="alert alert-danger">주문해주셔서 감사합니다.</h2>
-        <p> 주문은<% out.println(shipping_shippingDate); %>에 배송될 예정입니다!
+        <p> 주문은 <% out.println(shipping_shippingDate); %>에 배송될 예정입니다!
         <p> 주문번호 : <%out.println(shipping_cartId); %>
     </div>
 
