@@ -140,6 +140,30 @@ h1,h2,h3,h4,h5{
 }
 
 /* =========================
+   상품상세
+========================= */
+
+.product-img{
+    width:100%;
+    border-radius:10px;
+}
+
+.price{
+    color:#ff4d4d;
+    font-size:26px;
+    font-weight:bold;
+}
+
+.info-table td{
+    padding:8px;
+    border-bottom:1px solid #ddd;
+}
+
+.quantity-box{
+    width:120px;
+}
+
+/* =========================
    푸터
 ========================= */
 
@@ -149,4 +173,57 @@ footer{
     text-align:center;
     color:#8A7C72;
     font-size:14px;
+}
+
+/* =========================
+   관리자 메인
+========================= */
+
+.admin-menu-card{
+    background-color:#fff;
+    border:1px solid #E8DCCF;
+    border-radius:18px;
+    transition:0.2s;
+}
+
+.admin-menu-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   관리자 공통
+========================= */
+
+.admin-box{
+    background-color:#ffffff;
+    border:1px solid #E8DCCF;
+    border-radius:20px;
+}
+
+.admin-form-box{
+    max-width:800px;
+    background:#FAF7F2;
+    border:1px solid #E8DCCF;
+    border-radius:15px;
+    padding:40px;
+}
+
+/* 삭제 버튼 */
+.btn-delete{
+    background-color:#E85D3F !important;
+    color:#fff !important;
+    border:none;
+    border-radius:10px;
+}
+
+.btn-delete:hover{
+    background-color:#D94C2D !important;
+    color:#fff !important;
+}
+
+table{
+    background-color:#ffffff;
+    border:1px solid #E8DCCF;
+    border-radius: 20px;
 }

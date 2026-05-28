@@ -8,7 +8,7 @@
 <title>회원가입</title>
 </head>
 
-<body class="bg-light">
+<body>
 
 <div class="container py-4">
     <%@ include file="menu.jsp" %>
@@ -81,7 +81,7 @@
                     <!-- 버튼 -->
                     <div class="d-grid">
                         <button type="submit" class="btn btn-dark btn-lg">
-                            회원가입
+                            가입하기
                         </button>
                     </div>
                 </form>

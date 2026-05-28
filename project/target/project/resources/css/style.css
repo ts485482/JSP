@@ -1,141 +1,229 @@
-/* ========== RESET ========== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-  
-  body {
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.5;
-  }
-  
-  /* ========== LAYOUT ========== */
-  .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 16px;
-  }
-  
-  /* ========== HEADER ========== */
-  header {
-    background: white;
-    border-bottom: 1px solid var(--border);
-    padding: 14px 16px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  
-  .logo {
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--primary);
-  }
-  
-  /* ========== CATEGORY MENU ========== */
-  .nav {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-  }
-  
-  .nav a {
-    text-decoration: none;
-    color: var(--text);
-    font-size: 14px;
-  }
-  
-  /* ========== PRODUCT GRID (핵심) ========== */
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 모바일 기준 */
-    gap: 12px;
-    margin-top: 16px;
-  }
-  
-  .product-card {
-    background: var(--card);
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    transition: 0.2s;
-  }
-  
-  .product-card:hover {
-    transform: translateY(-3px);
-  }
-  
-  .product-img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    background: #ddd;
-    object-fit: cover;
-  }
-  
-  .product-info {
-    padding: 10px;
-  }
-  
-  .product-title {
-    font-size: 14px;
-    font-weight: 500;
-  }
-  
-  .product-price {
-    margin-top: 4px;
-    color: var(--primary);
-    font-weight: bold;
-  }
-  
-  /* ========== BUTTON ========== */
-  .btn {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    background: var(--primary);
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .btn:hover {
-    opacity: 0.9;
-  }
-  
-  /* ========== RECENTLY VIEWED ========== */
-  .recent {
-    margin-top: 24px;
-  }
-  
-  .recent h3 {
-    font-size: 14px;
-    margin-bottom: 8px;
-    color: var(--subtext);
-  }
-  
-  .recent-list {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-  }
-  
-  .recent-item {
-    min-width: 80px;
-    height: 80px;
-    background: #eee;
-    border-radius: 10px;
-  }
-  
-  /* ========== FOOTER ========== */
-  footer {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 12px;
-    color: var(--subtext);
-    padding: 20px;
-  }
+/* =========================
+   전체 기본 세팅
+========================= */
+
+body{
+    background-color:#FFFDF9;
+    font-family:'Pretendard','Noto Sans KR', sans-serif;
+    color:#4E463F;
+    margin:0;
+    padding:0;
+}
+
+/* 링크 기본 */
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* =========================
+   헤더
+========================= */
+
+header{
+    background-color:#FFF8F0;
+    border-bottom:1px solid #E8DCCF;
+}
+
+/* =========================
+   검색창 / input
+========================= */
+
+.form-control{
+    border-radius:12px;
+    border:1px solid #E5D5C8;
+}
+
+.form-control:focus{
+    border-color:#B08968;
+    box-shadow:0 0 0 0.15rem rgba(176,137,104,0.2);
+}
+
+/* =========================
+   버튼
+========================= */
+
+.btn-dark{
+    background-color:#B08968 !important;
+    border:none;
+    border-radius:10px;
+    transition:0.2s;
+}
+
+.btn-dark:hover{
+    background-color:#9C7255 !important;
+}
+
+/* =========================
+   상품 카드
+========================= */
+
+.product-card{
+    border:none;
+    border-radius:18px;
+    overflow:hidden;
+    background-color:#ffffff;
+    transition:0.25s;
+}
+
+.product-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* 상품 이미지 */
+.card-img-top{
+    height:250px;
+    object-fit:cover;
+}
+
+/* 상품 제목 */
+.card-title{
+    font-weight:600;
+    color:#3E352E;
+}
+
+/* 브랜드 */
+.text-muted{
+    color:#8A7C72 !important;
+}
+
+/* 가격 */
+.fw-bold{
+    color:#B08968;
+}
+
+/* =========================
+   카테고리 메뉴
+========================= */
+
+.category-box{
+    background-color:#ffffff;
+    border:1px solid #E8DCCF;
+    transition:0.2s;
+    cursor:pointer;
+}
+
+.category-box:hover{
+    background-color:#F5EBDD;
+}
+
+.category-box a{
+    display:block;
+    width:100%;
+}
+
+/* 활성 카테고리 */
+.category-active{
+    background-color:#B08968 !important;
+    color:#fff !important;
+}
+
+.category-active a{
+    color:#fff !important;
+}
+
+/* =========================
+   카드 그림자 (공통)
+========================= */
+
+.shadow-soft{
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+}
+
+/* =========================
+   텍스트
+========================= */
+
+h1,h2,h3,h4,h5{
+    color:#3E352E;
+}
+
+/* =========================
+   상품상세
+========================= */
+
+.product-img{
+    width:100%;
+    border-radius:10px;
+}
+
+.price{
+    color:#ff4d4d;
+    font-size:26px;
+    font-weight:bold;
+}
+
+.info-table td{
+    padding:8px;
+    border-bottom:1px solid #ddd;
+}
+
+.quantity-box{
+    width:120px;
+}
+
+/* =========================
+   푸터
+========================= */
+
+footer{
+    margin-top:50px;
+    padding:30px 0;
+    text-align:center;
+    color:#8A7C72;
+    font-size:14px;
+}
+
+/* =========================
+   관리자 메인
+========================= */
+
+.admin-menu-card{
+    background-color:#fff;
+    border:1px solid #E8DCCF;
+    border-radius:18px;
+    transition:0.2s;
+}
+
+.admin-menu-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   관리자 공통
+========================= */
+
+.admin-box{
+    background-color:#ffffff;
+    border:1px solid #E8DCCF;
+    border-radius:20px;
+}
+
+.admin-form-box{
+    max-width:800px;
+    background:#FAF7F2;
+    border:1px solid #E8DCCF;
+    border-radius:15px;
+    padding:40px;
+}
+
+/* 삭제 버튼 */
+.btn-delete{
+    background-color:#E85D3F !important;
+    color:#fff !important;
+    border:none;
+    border-radius:10px;
+}
+
+.btn-delete:hover{
+    background-color:#D94C2D !important;
+    color:#fff !important;
+}
+
+table{
+    background-color:#ffffff;
+    border:1px solid #E8DCCF;
+    border-radius: 20px;
+}
