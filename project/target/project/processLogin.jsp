@@ -24,7 +24,8 @@
     if(rs.next()){
 
         // 세션 저장
-        session.setAttribute("sessionId", id);
+        session.setAttribute("sessionId", rs.getString("m_id"));
+        session.setAttribute("userName", rs.getString("m_name"));
 
         // 메인 페이지 이동
         response.sendRedirect("main.jsp");

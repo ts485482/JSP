@@ -71,6 +71,20 @@
                     </a>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="admin-menu-card p-5 text-center">
+                    <h3 class="mb-3">
+                        배송 관리
+                    </h3>
+                    <p class="text-muted">
+                        주문 물품 배송 상태 변경
+                    </p>
+                    <a href="adminDelivery.jsp"
+                       class="btn btn-dark mt-3">
+                        이동하기
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

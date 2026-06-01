@@ -14,7 +14,9 @@ if(userId == null){
 
 String name = request.getParameter("name");
 String phone = request.getParameter("phone");
+String zipcode = request.getParameter("zipcode");
 String address = request.getParameter("address");
+String addressDetail = request.getParameter("addressDetail");
 String message = request.getParameter("message");
 
 PreparedStatement pstmt = null;
@@ -96,17 +98,18 @@ pstmt.close();
 
 String orderSql =
     "INSERT INTO orderinfo " +
-    "(order_id, m_id, receiver_name, receiver_phone, receiver_address, message, total_price) " +
-    "VALUES (order_seq.NEXTVAL, ?, ?, ?, ?, ?, ?)";
+    "(order_id, m_id, receiver_name, receiver_phone, receiver_address, message, total_price, order_status) " +
+    "VALUES (order_seq.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
 
 pstmt = conn.prepareStatement(orderSql);
 
 pstmt.setString(1, userId);
 pstmt.setString(2, name);
 pstmt.setString(3, phone);
-pstmt.setString(4, address);
+pstmt.setString(4, "["+ zipcode + "] " + address + addressDetail);
 pstmt.setString(5, message);
 pstmt.setInt(6, totalPrice);
+pstmt.setString(7,"배송준비중");
 
 pstmt.executeUpdate();
 

@@ -3,7 +3,7 @@
 
 <html>
 <head>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 <link rel="stylesheet" href="./resources/css/style.css">
 <title>상품 상세</title>
@@ -131,6 +131,7 @@ function shippingWithCart(){
             if(recentRs != null) recentRs.close();
             if(recentPstmt != null) recentPstmt.close();
         }
+        
 
         String sql = "SELECT * FROM cloth WHERE c_id=?";
 
@@ -140,6 +141,28 @@ function shippingWithCart(){
         rs = pstmt.executeQuery();
 
         if(rs.next()){
+            // 현재 상품 관심등록(찜) 여부 확인 시작
+            boolean isWish = false;
+            int currentWishlistId = 0; // 삭제할 때 쓸 ID
+            
+            if (userId != null) {
+                PreparedStatement wishPstmt = null;
+                ResultSet wishRs = null;
+                
+                String wishCheckSql = "SELECT wishlist_id FROM wishlist WHERE m_id = ? AND c_id = ?";
+                wishPstmt = conn.prepareStatement(wishCheckSql);
+                wishPstmt.setString(1, userId);
+                wishPstmt.setString(2, id);
+                
+                wishRs = wishPstmt.executeQuery();
+                if (wishRs.next()) {
+                    isWish = true;
+                    currentWishlistId = wishRs.getInt("wishlist_id");
+                }
+                
+                if (wishRs != null) wishRs.close();
+                if (wishPstmt != null) wishPstmt.close();
+            }
     %>
 
     <!-- 뒤로가기 -->
@@ -163,11 +186,22 @@ function shippingWithCart(){
 
         <!-- 상품 정보 -->
         <div class="col-md-7">
-
-            <h2 class="fw-bold mb-3">
-                <%=rs.getString("c_name")%>
-            </h2>
-
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h2 class="fw-bold mb-0">
+                    <%=rs.getString("c_name")%>
+                </h2>
+                <div>
+                    <% if (isWish) { %>
+                        <a href="./removeWishlist.jsp?wishlistId=<%=currentWishlistId%>&c_id=<%=rs.getString("c_id")%>" class="text-danger fs-3 text-decoration-none">
+                            <i class="bi bi-heart-fill"></i>
+                        </a>
+                    <% } else { %>
+                        <a href="./addWishlist.jsp?c_id=<%=rs.getString("c_id")%>" class="text-dark fs-3 text-decoration-none">
+                            <i class="bi bi-heart"></i>
+                        </a>
+                    <% } %>
+                </div>
+            </div>
             <p class="text-muted mb-4">
                 <%=rs.getString("c_description")%>
             </p>

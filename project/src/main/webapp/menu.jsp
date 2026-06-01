@@ -7,8 +7,14 @@
         category = "";
     }
 
-    /* 로그인 사용자 확인 */
+    /* 로그인 사용자 확인 (ID와 이름을 모두 가져옴) */
     String userId = (String) session.getAttribute("sessionId");
+    String userName = (String) session.getAttribute("userName");
+    
+    // 혹시라도 이름 세션이 비어있을 경우를 대비한 안전장치 기본값
+    if(userName == null || userName.trim().equals("")) {
+        userName = userId; 
+    }
 %>
 
 <header class="border-bottom bg-white">
@@ -68,7 +74,7 @@
                 %>
                     <!-- 로그인 된 상태 -->
                     <span class="fw-bold">
-                        어서오세요, <%=userId%>님!
+                        어서오세요, <%=userName%>님!
                     </span>
                     <p>
                     <a href="./mypage.jsp"

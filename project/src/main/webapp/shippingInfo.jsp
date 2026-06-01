@@ -10,6 +10,26 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="./resources/css/style.css">
 
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<script>
+    function execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                
+                let addr = ''; 
+                if (data.userSelectedType === 'R') { 
+                    addr = data.roadAddress;
+                } else {
+                    addr = data.jibunAddress;
+                }
+                document.getElementById('zipcode').value = data.zonecode;
+                document.getElementById("address").value = addr;
+                document.getElementById("addressDetail").focus();
+            }
+        }).open();
+    }
+</script>
 </head>
 <body>
 
@@ -73,14 +93,18 @@
 
             <div class="mb-3">
                 <label class="form-label">배송 주소</label>
-                <input type="text" name="address" class="form-control" required>
+                <div class="input-group mb-2">
+                    <input type="text" name="zipcode" id="zipcode" class="form-control" placeholder="우편번호" readonly>
+                    <button type="button" class="btn btn-outline-dark" onclick="execDaumPostcode()">우편번호 검색</button>
+                </div>
+                <input type="text" name="address" id="address" class="form-control mb-2" placeholder="기본 주소" readonly>
+                <input type="text" name="addressDetail" id="addressDetail" class="form-control" placeholder="상세 주소 입력" required>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">배송 요청사항</label>
                 <textarea name="message" class="form-control" rows="3"></textarea>
             </div>
-
         </div>
 
         <!-- 결제 정보 -->

@@ -195,7 +195,7 @@
         <a href="main.jsp" class="btn btn-outline-secondary">
             쇼핑 계속하기
         </a>
-        <a href="myOrder.jsp" class="btn btn-primary">
+        <a href="orderStatus.jsp" class="btn btn-primary">
             주문 내역 보기
         </a>
     </div>

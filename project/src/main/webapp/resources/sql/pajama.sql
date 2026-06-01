@@ -30,7 +30,7 @@ CREATE TABLE cloth (
 
 
 CREATE TABLE member ( 
-    m_id VARCHAR2(10) NOT NULL,
+    m_id VARCHAR2(30) NOT NULL,
     m_password VARCHAR2(100) NOT NULL,
     m_name VARCHAR2(20) NOT NULL,
     m_gender VARCHAR2(10),
@@ -44,7 +44,7 @@ CREATE TABLE member (
 
 INSERT INTO member VALUES('admin','1234','������',null,null,null,null,null,null);
 DROP TABLE MEMBER;
-
+ALTER TABLE member MODIFY m_id VARCHAR2(30);
 
 CREATE TABLE cart (
 
