@@ -227,3 +227,34 @@ table{
     border:1px solid #E8DCCF;
     border-radius: 20px;
 }
+
+.order-box{
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+}
+
+.order-title{
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+.info-table th{
+    width:180px;
+    background:#f8f9fa;
+}
+
+.total-price{
+    font-size:28px;
+    font-weight:bold;
+    color:#0d6efd;
+}
+
+.badge-order{
+    background:#198754;
+    padding:10px 16px;
+    border-radius:10px;
+    color:white;
+    font-size:14px;
+}

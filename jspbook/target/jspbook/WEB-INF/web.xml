@@ -107,8 +107,10 @@
     <servlet-name>jsp</servlet-name>
     <url-pattern>*.jsp</url-pattern>
   </servlet-mapping>
-<!--  <error-page>
+<!--
+  <error-page>
     <error-code>500</error-code>
     <location>/ch11/errorCode_error.jsp</location>
-  </error-page> -->
+  </error-page> 
+-->
 </web-app>

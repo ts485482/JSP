@@ -30,7 +30,7 @@
 
 <html>
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 <link rel="stylesheet" href="./resources/css/style.css">
 <title>상품 수정</title>
 </head>
@@ -44,7 +44,7 @@
 
         <h3 class="mb-4">상품 수정</h3>
 
-        <form action="processUpdateProduct.jsp" method="post" enctype="multipart/form-data">
+        <form action="processUpdateProduct.jsp" method="post">
 
             <input type="hidden" name="c_id" value="<%=rs.getString("c_id")%>">
 

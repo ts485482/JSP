@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>장바구니</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 <link rel="stylesheet" href="./resources/css/style.css">
 <!-- AI 도움 -->
 <script>
@@ -56,7 +56,7 @@ window.onload = function () {
 
 <%
     String sql =
-        "SELECT c.c_id, c.c_name, c.c_price, c.c_fileName, ct.quantity " +
+        "SELECT c.c_id, c.c_name, c.c_price, c.c_stock, c.c_fileName, ct.quantity " +
         "FROM cart ct " +
         "JOIN cloth c ON ct.c_id = c.c_id " +
         "WHERE ct.m_id = ?";

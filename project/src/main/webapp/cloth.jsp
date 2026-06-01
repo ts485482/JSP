@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 <link rel="stylesheet" href="./resources/css/style.css">
 <title>상품 상세</title>
 
@@ -36,7 +36,7 @@ function shippingWithCart(){
     let qty = document.getElementById("qty").value;
     document.getElementById("hiddenQty").value = qty;
 
-    document.addForm.submit();
+    document.buyForm.submit();
 }
 
 </script>
@@ -209,10 +209,14 @@ function shippingWithCart(){
                 <button type="button" class="btn btn-dark me-2" onclick="addToCart()">
                     장바구니 추가
                 </button>
+            </form>
+            <form name="buyForm" action="./buyCart.jsp" method="post">
+                <input type="hidden" name="c_id" value="<%=rs.getString("c_id")%>">
+                <input type="hidden" name="quantity" id="hiddenQty" value="1">
                 <button type="button" class="btn btn-dark me-2" onclick="shippingWithCart()">
                     바로 구매하기
                 </button>
-            </form>
+            <form>
         </div>
     </div>
     <!-- 상품 정보 테이블 -->

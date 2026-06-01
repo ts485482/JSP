@@ -50,5 +50,5 @@
     if(pstmt != null) pstmt.close();
     if(conn != null) conn.close();
     // 장바구니 이동
-    response.sendRedirect("cloth.jsp?id=" + c_id);
+    response.sendRedirect("cart.jsp");
 %>
