@@ -1,5 +1,7 @@
-dao\UserDAO.class
-dto\UserDTO.class
 dao\ClothDAO.class
 dto\ClothDTO.class
+dao\UserDAO.class
+dto\UserDTO.class
+dao\CartDAO.class
+dto\CartDTO.class
 filter\LogFileFilter.class
