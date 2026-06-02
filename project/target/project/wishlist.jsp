@@ -40,7 +40,17 @@
 
     <div class="container mt-5" style="min-height: 600px;">
         <h3 class="fw-bold mb-4">마이페이지 - 관심등록</h3>
-        
+        <ul class="nav nav-tabs mb-4">
+            <li class="nav-item">
+                <a class="nav-link text-muted" href="orderStatus.jsp">주문현황</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-muted" href="purchaseHistory.jsp">구매내역</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active fw-bold text-dark" href="wishlist.jsp">관심등록</a>
+            </li>
+        </ul>
         <% request.setAttribute("currentTab", "wishlist"); %>
 
         <div class="row mt-4">

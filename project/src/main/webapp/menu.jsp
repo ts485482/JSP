@@ -1,12 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 
 <%
-    String category = request.getParameter("category");
-
-    if(category == null){
-        category = "";
-    }
-
     /* 로그인 사용자 확인 (ID와 이름을 모두 가져옴) */
     String userId = (String) session.getAttribute("sessionId");
     String userName = (String) session.getAttribute("userName");

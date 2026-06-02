@@ -1,3 +1,5 @@
 dao\UserDAO.class
 dto\UserDTO.class
+dao\ClothDAO.class
+dto\ClothDTO.class
 filter\LogFileFilter.class
