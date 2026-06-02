@@ -71,6 +71,20 @@
                     </a>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="mypage-card p-5 text-center">
+                    <h3 class="mb-3">
+                        회원탈퇴
+                    </h3>
+                    <p class="text-muted">
+                        회원탈퇴 시, 기존에 존재하던 정보 전체가 삭제됩니다.
+                    </p>
+                    <a href="deleteMember.jsp"
+                       class="btn btn-danger mt-3" onclick="return confirm('정말로 회원탈퇴를 진행하시겠습니까?')">
+                        탈퇴하기
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

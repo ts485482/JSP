@@ -1,6 +1,12 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 
 <%@ include file="menu.jsp" %>
+<%
+    if(userId == null || !userId.equals("admin")){
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>
 <html>
 <head>
     <meta charset="UTF-8">

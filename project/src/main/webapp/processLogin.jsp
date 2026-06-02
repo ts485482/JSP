@@ -1,49 +1,28 @@
-<%@ page contentType="text/html; charset=utf-8" %>
-<%@ page import="java.sql.*" %>
-<%@ include file="dbconn.jsp" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="dto.UserDTO" %>
+<%@ page import="dao.UserDAO" %>
 <%
-    request.setCharacterEncoding("utf-8");
-
-    String id = request.getParameter("id");
+    request.setCharacterEncoding("UTF-8");
+    String id = request.getParameter("id"); 
     String password = request.getParameter("password");
 
-    PreparedStatement pstmt = null;
-    ResultSet rs = null;
+    UserDTO user = new UserDTO();
+    user.setId(id);
+    user.setPassword(password);
 
-    String sql = "SELECT * FROM member WHERE m_id=? AND m_password=?";
+    UserDAO userDAO = new UserDAO();
+    int result = userDAO.login(user); 
 
-    pstmt = conn.prepareStatement(sql);
-
-    pstmt.setString(1, id);
-    pstmt.setString(2, password);
-
-    rs = pstmt.executeQuery();
-
-    // 로그인 성공
-    if(rs.next()){
-
-        // 세션 저장
-        session.setAttribute("sessionId", rs.getString("m_id"));
-        session.setAttribute("userName", rs.getString("m_name"));
-
-        // 메인 페이지 이동
-        response.sendRedirect("main.jsp");
-
-    }else{
-
-        // 로그인 실패
-        response.sendRedirect("login.jsp?error=1");
-
+    if (result == 1) {
+        session.setAttribute("sessionId", user.getId());
+        session.setAttribute("userName", user.getName()); 
+        
+        response.sendRedirect("main.jsp"); 
+    } else if (result == 0) {
+        out.println("<script>alert('비밀번호가 일치하지 않습니다.'); history.back();</script>");
+    } else if (result == -1) {
+        out.println("<script>alert('존재하지 않는 아이디입니다. 다시 확인해주세요.'); history.back();</script>");
+    } else {
+        out.println("<script>alert('데이터베이스 오류가 발생했습니다.'); history.back();</script>");
     }
-
-    // 자원 정리
-    if(rs != null)
-        rs.close();
-
-    if(pstmt != null)
-        pstmt.close();
-
-    if(conn != null)
-        conn.close();
 %>

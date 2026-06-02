@@ -3,9 +3,9 @@
 <%
     Connection conn = null;
     try {
-        String url = "jdbc:oracle:thin:@localhost:1521:xe"; 
-        String user = "system";      
-        String password = "1234"; 
+        String url = "jdbc:oracle:thin:@YOUR_DB_HOST:1521:YOUR_DB_NAME"; 
+        String user = "YOUR_DB_USER";      
+        String password = "YOUR_DB_PASSWORD"; 
         
         Class.forName("oracle.jdbc.OracleDriver");
         conn = DriverManager.getConnection(url, user, password);

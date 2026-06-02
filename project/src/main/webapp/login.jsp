@@ -72,7 +72,7 @@ function handleCredentialResponse(response) {
                 
                 <div class="d-flex justify-content-center">
                     <div id="g_id_onload"
-                         data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+                         data-client_id="201888846688-akjocpg1d00o1tr9m546j779lglf1tun.apps.googleusercontent.com"
                          data-callback="handleCredentialResponse"
                          data-context="signin"
                          data-ux_mode="popup"

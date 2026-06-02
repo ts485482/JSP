@@ -193,11 +193,11 @@ function shippingWithCart(){
                 <div>
                     <% if (isWish) { %>
                         <a href="./removeWishlist.jsp?wishlistId=<%=currentWishlistId%>&c_id=<%=rs.getString("c_id")%>" class="text-danger fs-3 text-decoration-none">
-                            <i class="bi bi-heart-fill"></i>
+                            <i class="bi bi-heart-fill" onclick="return confirm('관심 상품에서 삭제하시겠습니까?');"></i>
                         </a>
                     <% } else { %>
                         <a href="./addWishlist.jsp?c_id=<%=rs.getString("c_id")%>" class="text-dark fs-3 text-decoration-none">
-                            <i class="bi bi-heart"></i>
+                            <i class="bi bi-heart" onclick="return confirm('관심 상품으로 등록하시겠습니까?');"></i>
                         </a>
                     <% } %>
                 </div>

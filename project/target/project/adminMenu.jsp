@@ -1,26 +1,20 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-
-<%
-    String adminPage = request.getParameter("adminPage");
-
-    if(adminPage == null){
-        adminPage = "";
-    }
-%>
-
 <div class="admin-tab-wrapper mb-4">
     <!-- 상품 추가 -->
     <p>
-    <a href="adminAdd.jsp" class="admin-tab <%= adminPage.equals("Add") ? "admin-tab-active" : "" %>">
+    <a href="adminAdd.jsp" class="admin-tab">
         물품 추가
     </a>
      | 
-    <a href="adminUpdate.jsp" class="admin-tab <%= adminPage.equals("Update") ? "admin-tab-active" : "" %>">
+    <a href="adminUpdate.jsp" class="admin-tab">
         물품 수정
     </a>
      | 
-    <a href="adminDelete.jsp" class="admin-tab <%= adminPage.equals("Delete") ? "admin-tab-active" : "" %>">
+    <a href="adminDelete.jsp" class="admin-tab">
         물품 제거
+    </a>
+    <a href="adminDelivery.jsp" class="admin-tab">
+        배송 관리
     </a>
     </p>
 </div>
